@@ -1040,32 +1040,173 @@ export class utils {
         var img=document.createElement("img");
         img.id = "close-img"
         img.src=ImgBase64.exit;
-    
+
         img.style.position = "absolute"
         img.style.top = "10px"
         img.style.right = "10px"
-        img.style.width = "30px"
-        img.style.height = "30px"
+        img.style.width = "40px"
+        img.style.height = "40px"
         img.style.zIndex = "1001";
-    
+        img.style.cursor = "move";
+        img.style.userSelect = "none";
+        img.style.touchAction = "none";
+
         newDiv.appendChild(img);
-    
-        // 将按钮添加到文档中
-        // document.body.appendChild(button);
-    
-        // 可选：添加点击事件
-        img.addEventListener('click', () => {
-            UIMgr.getInstance().closeView(UIConfig.GameViewBG.path)
-            cc.director.resume()
-            LoadingViewWrap.close()
-            parent.postMessage("cocos-close", "*")
-            Tools.httpReq("exit-game", {}, () => {})
-            //audioMgr.replayMusic()
-            var element = document.getElementById('gameview');
-            if (element) {
-                element.parentNode.removeChild(element);
+
+        // 拖动功能变量
+        var isDragging = false;
+        var dragStartTime = 0;
+        var startX = 0;
+        var startY = 0;
+        var offsetX = 0;
+        var offsetY = 0;
+        var totalMoveDistance = 0;
+
+        // 鼠标按下
+        img.onmousedown = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            isDragging = true;
+            dragStartTime = Date.now();
+            totalMoveDistance = 0;
+            startX = e.clientX;
+            startY = e.clientY;
+            var rect = img.getBoundingClientRect();
+            offsetX = rect.left;
+            offsetY = rect.top;
+            img.style.opacity = "0.7";
+            return false;
+        };
+
+        // 鼠标移动
+        document.onmousemove = function(e) {
+            if (isDragging) {
+                e.preventDefault();
+                var dx = e.clientX - startX;
+                var dy = e.clientY - startY;
+
+                // 计算总移动距离
+                totalMoveDistance = Math.sqrt(dx * dx + dy * dy);
+
+                // 只有移动超过10px才开始拖动
+                if (totalMoveDistance > 10) {
+                    var newX = offsetX + dx;
+                    var newY = offsetY + dy;
+
+                    // 边界限制
+                    var maxX = window.innerWidth - 40;
+                    var maxY = window.innerHeight - 40;
+
+                    newX = Math.max(0, Math.min(newX, maxX));
+                    newY = Math.max(0, Math.min(newY, maxY));
+
+                    img.style.left = newX + 'px';
+                    img.style.top = newY + 'px';
+                    img.style.right = 'auto'; // 取消 right 定位
+                }
             }
-        });
+        };
+
+        // 鼠标释放
+        document.onmouseup = function(e) {
+            if (isDragging) {
+                var clickDuration = Date.now() - dragStartTime;
+                isDragging = false;
+                img.style.opacity = "1";
+
+                // 判断是点击还是拖动：
+                // 1. 移动距离小于10px
+                // 2. 或者点击时间小于200ms（快速点击）
+                var isClick = totalMoveDistance < 10 || clickDuration < 200;
+
+                if (isClick) {
+                    // 点击关闭游戏
+                    UIMgr.getInstance().closeView(UIConfig.GameViewBG.path)
+                    cc.director.resume()
+                    LoadingViewWrap.close()
+                    parent.postMessage("cocos-close", "*")
+                    Tools.httpReq("exit-game", {}, () => {})
+                    var element = document.getElementById('gameview');
+                    if (element) {
+                        element.parentNode.removeChild(element);
+                    }
+                }
+            }
+        };
+
+        // 触摸开始（移动端）
+        img.ontouchstart = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            isDragging = true;
+            dragStartTime = Date.now();
+            totalMoveDistance = 0;
+            var touch = e.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            var rect = img.getBoundingClientRect();
+            offsetX = rect.left;
+            offsetY = rect.top;
+            img.style.opacity = "0.7";
+            return false;
+        };
+
+        // 触摸移动
+        document.ontouchmove = function(e) {
+            if (isDragging) {
+                e.preventDefault();
+                var touch = e.touches[0];
+                var dx = touch.clientX - startX;
+                var dy = touch.clientY - startY;
+
+                // 计算总移动距离
+                totalMoveDistance = Math.sqrt(dx * dx + dy * dy);
+
+                // 只有移动超过10px才开始拖动
+                if (totalMoveDistance > 10) {
+                    var newX = offsetX + dx;
+                    var newY = offsetY + dy;
+
+                    // 边界限制
+                    var maxX = window.innerWidth - 40;
+                    var maxY = window.innerHeight - 40;
+
+                    newX = Math.max(0, Math.min(newX, maxX));
+                    newY = Math.max(0, Math.min(newY, maxY));
+
+                    img.style.left = newX + 'px';
+                    img.style.top = newY + 'px';
+                    img.style.right = 'auto'; // 取消 right 定位
+                }
+            }
+        };
+
+        // 触摸结束
+        document.ontouchend = function(e) {
+            if (isDragging) {
+                var clickDuration = Date.now() - dragStartTime;
+                isDragging = false;
+                img.style.opacity = "1";
+
+                // 判断是点击还是拖动：
+                // 1. 移动距离小于10px
+                // 2. 或者点击时间小于200ms（快速点击）
+                var isClick = totalMoveDistance < 10 || clickDuration < 200;
+
+                if (isClick) {
+                    // 点击关闭游戏
+                    UIMgr.getInstance().closeView(UIConfig.GameViewBG.path)
+                    cc.director.resume()
+                    LoadingViewWrap.close()
+                    parent.postMessage("cocos-close", "*")
+                    Tools.httpReq("exit-game", {}, () => {})
+                    var element = document.getElementById('gameview');
+                    if (element) {
+                        element.parentNode.removeChild(element);
+                    }
+                }
+            }
+        };
     
     }
     

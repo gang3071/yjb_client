@@ -48,7 +48,7 @@ export const enum SERVER_EREA {
     TEST = 99
 }
 /** 当前服务区域配置(根据打包修改) */
-export const NOW_SERVER_EREA : SERVER_EREA = SERVER_EREA.JP_1;
+export const NOW_SERVER_EREA : SERVER_EREA = SERVER_EREA.CN;
 /** 通用版本 */
 const DEFAULT_VERSION = "1.1.0"
 /** 测试服版本号 */
