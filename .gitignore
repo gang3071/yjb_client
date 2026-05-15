@@ -1,0 +1,26 @@
+# Cocos Creator 自动生成的文件
+library/
+temp/
+local/
+build/
+
+# 依赖包（可选：如果团队需要可以删除这行）
+node_modules/
+
+# 系统文件
+.DS_Store
+__MACOSX/
+Thumbs.db
+*.log
+
+# IDE 配置
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 其他
+*.swp
+*.swo
+*~
+.cache/

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title><%= projectName %></title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="<%= cssUrl %>"/>
+
+  <script src="js/fetch.js"></script>
+  <script src="js/promise.min.js"></script>
+  <script src="js/external/adapter-latest.js"></script>
+
+  <link href="css/player.css" rel="stylesheet">
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67721403af5bfec1dbe4708f/1igapsbqb';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+</head>
+<body>
+  <input id="file" type="file" accept="image/*" class="fileToUpload" style="opacity:0;position:absolute;" onchange="webBase64String(this)"/>
+  <div style="position: absolute; top: 0;bottom: 0;left: 0;right: 0;background-color: white;"></div>
+  <div id="videoPosition_1" hidden = "true"></div>
+	<div id="GameDiv">
+    <div id="Cocos3dGameContainer">
+      <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+    </div>
+  </div>
+  <div id="videoPosition_2" hidden = "true">
+      <div id="videoParent" hidden = "true"></div>
+  </div>
+    <!-- <video id="remoteVideo" controls playsinline></video> -->
+    
+    <!-- 360 player is added dynamically -->
+    
+
+    <!-- <div id="networkWarning">Your connection isn't fast enough to play this stream!</div> -->
+    <img id="play_button" src="" onclick="playWebRTCVideo()"
+        style="position: absolute; top: 30px; left: 30px; display: none;" />
+
+
+    <!-- Mute/Unmute Video Button -->
+    <button onclick="changeVideoMuteStatus()" id="unmuteButton" title="Mute/Unmute Video">
+        Unmute
+    </button>
+    <div id="splash">
+            
+    </div>
+
+
+  <%- include(cocosTemplate, {}) %>
+</body>
+<script type="text/javascript">
+  (function () {
+      // let str = window.location.search.slice(1)
+      // const pairs = str.split('&');
+      // const params= {};
+      // pairs.forEach(pair => {
+      //     const [key, value] = pair.split('=');
+      //     params[decodeURIComponent(key)] = decodeURIComponent(value || '');
+      // });
+    
+      var splash = document.getElementById('splash');
+      // if (null != params.code) {
+      //   splash.style.display = 'none';
+      // }else {
+        splash.style.display = 'block';
+      // }
+      
+  
+  
+  })();
+</script>
+
+</html>

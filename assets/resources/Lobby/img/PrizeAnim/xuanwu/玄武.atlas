@@ -1,0 +1,153 @@
+
+玄武.png
+size: 1905,1476
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0
+  rotate: true
+  xy: 1852, 913
+  size: 33, 17
+  orig: 33, 20
+  offset: 0, 2
+  index: -1
+1
+  rotate: false
+  xy: 1638, 600
+  size: 31, 17
+  orig: 31, 18
+  offset: 0, 1
+  index: -1
+10
+  rotate: true
+  xy: 1361, 549
+  size: 397, 275
+  orig: 397, 275
+  offset: 0, 0
+  index: -1
+11
+  rotate: true
+  xy: 838, 437
+  size: 509, 521
+  orig: 509, 547
+  offset: 0, 0
+  index: -1
+12
+  rotate: false
+  xy: 838, 948
+  size: 647, 526
+  orig: 647, 526
+  offset: 0, 0
+  index: -1
+13
+  rotate: false
+  xy: 828, 26
+  size: 378, 196
+  orig: 380, 198
+  offset: 1, 1
+  index: -1
+14
+  rotate: false
+  xy: 2, 2
+  size: 343, 251
+  orig: 345, 254
+  offset: 1, 1
+  index: -1
+2
+  rotate: true
+  xy: 1487, 982
+  size: 492, 404
+  orig: 502, 415
+  offset: 5, 6
+  index: -1
+22
+  rotate: false
+  xy: 1742, 263
+  size: 136, 124
+  orig: 136, 124
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 1361, 332
+  size: 321, 215
+  orig: 321, 215
+  offset: 0, 0
+  index: -1
+33
+  rotate: true
+  xy: 1624, 170
+  size: 160, 116
+  orig: 161, 116
+  offset: 1, 0
+  index: -1
+4
+  rotate: true
+  xy: 1638, 619
+  size: 327, 212
+  orig: 327, 212
+  offset: 0, 0
+  index: -1
+44
+  rotate: false
+  xy: 347, 13
+  size: 479, 240
+  orig: 480, 240
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 2, 255
+  size: 829, 365
+  orig: 831, 367
+  offset: 1, 1
+  index: -1
+6
+  rotate: true
+  xy: 1684, 389
+  size: 228, 219
+  orig: 228, 219
+  offset: 0, 0
+  index: -1
+7
+  rotate: true
+  xy: 1348, 100
+  size: 230, 274
+  orig: 232, 276
+  offset: 1, 1
+  index: -1
+8
+  rotate: false
+  xy: 833, 224
+  size: 513, 211
+  orig: 515, 315
+  offset: 1, 3
+  index: -1
+9
+  rotate: true
+  xy: 1624, 136
+  size: 32, 73
+  orig: 34, 75
+  offset: 1, 1
+  index: -1
+bey
+  rotate: false
+  xy: 2, 622
+  size: 834, 852
+  orig: 836, 854
+  offset: 1, 1
+  index: -1
+lj
+  rotate: true
+  xy: 1487, 948
+  size: 32, 389
+  orig: 36, 389
+  offset: 0, 0
+  index: -1
+xe
+  rotate: true
+  xy: 1208, 34
+  size: 188, 126
+  orig: 188, 126
+  offset: 0, 0
+  index: -1

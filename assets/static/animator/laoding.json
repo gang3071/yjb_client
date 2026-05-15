@@ -1,0 +1,69 @@
+{
+"skeleton": {
+	"hash": "Sp91Bs99lzaBf434RSdjG/IHa/U",
+	"spine": "3.8.75",
+	"x": -68,
+	"y": -68,
+	"width": 136,
+	"height": 136,
+	"images": "./元件/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "guangquan", "parent": "root" }
+],
+"slots": [
+	{ "name": "coin", "bone": "root", "attachment": "coin01" },
+	{ "name": "guangquan", "bone": "guangquan", "attachment": "guangquan" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"coin": {
+				"coin01": { "scaleX": 0.9, "scaleY": 0.9, "width": 140, "height": 140 },
+				"coin02": { "width": 140, "height": 140 },
+				"coin03": { "width": 140, "height": 140 },
+				"coin04": { "width": 140, "height": 140 },
+				"coin05": { "width": 140, "height": 140 },
+				"coin06": { "width": 140, "height": 140 }
+			},
+			"guangquan": {
+				"guangquan": { "width": 136, "height": 136 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"coin": {
+				"attachment": [
+					{ "time": 0.0667, "name": "coin02" },
+					{ "time": 0.1333, "name": "coin03" },
+					{ "time": 0.2, "name": "coin04" },
+					{ "time": 0.2667, "name": "coin05" },
+					{ "time": 0.3333, "name": "coin06" },
+					{ "time": 0.4, "name": "coin05" },
+					{ "time": 0.4667, "name": "coin04" },
+					{ "time": 0.5333, "name": "coin03" },
+					{ "time": 0.6, "name": "coin02" },
+					{ "time": 0.6667, "name": "coin01" }
+				]
+			}
+		},
+		"bones": {
+			"guangquan": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 180 },
+					{ "time": 0.6667 },
+					{ "time": 1, "angle": 180 },
+					{ "time": 1.3333 }
+				]
+			}
+		}
+	}
+}
+}

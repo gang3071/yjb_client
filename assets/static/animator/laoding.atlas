@@ -1,0 +1,55 @@
+
+laoding.png
+size: 442,172
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+coin01
+  rotate: false
+  xy: 140, 68
+  size: 100, 102
+  orig: 140, 140
+  offset: 20, 19
+  index: -1
+coin02
+  rotate: false
+  xy: 344, 93
+  size: 96, 77
+  orig: 140, 140
+  offset: 22, 30
+  index: -1
+coin03
+  rotate: false
+  xy: 242, 2
+  size: 90, 65
+  orig: 140, 140
+  offset: 24, 32
+  index: -1
+coin04
+  rotate: false
+  xy: 140, 18
+  size: 99, 48
+  orig: 140, 140
+  offset: 19, 39
+  index: -1
+coin05
+  rotate: false
+  xy: 344, 15
+  size: 96, 76
+  orig: 140, 140
+  offset: 22, 27
+  index: -1
+coin06
+  rotate: false
+  xy: 242, 69
+  size: 100, 101
+  orig: 140, 140
+  offset: 21, 19
+  index: -1
+guangquan
+  rotate: false
+  xy: 2, 34
+  size: 136, 136
+  orig: 136, 136
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,16 @@
+{
+  "name": "一級棒",
+  "uuid": "81aa52fe-df75-4def-b19f-359dc4c195f9",
+  "version": "3.8.4",
+  "type": "module",
+  "creator": {
+    "version": "3.8.4"
+  },
+  "description": "一级棒",
+  "dependencies": {
+    "crypto-es": "^2.1.0",
+    "qrcode-generator": "^1.4.4",
+    "tcplayer": "^0.0.30",
+    "tcplayer.js": "^5.3.2"
+  }
+}

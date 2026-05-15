@@ -1,0 +1,83 @@
+{
+  "builder": {
+    "taskOptionsMap": {
+      "1735641636548": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.0",
+        "useWebGPU": false
+      },
+      "1737623988234": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.0",
+        "useWebGPU": false
+      },
+      "1740727570499": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.0",
+        "useWebGPU": false
+      },
+      "1744871353866": {
+        "useWebGPU": false,
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1745399692884": {
+        "useWebGPU": false,
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1755165221730": {
+        "useWebGPU": false,
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1757058152307": {
+        "useWebGPU": false,
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      }
+    },
+    "__version__": "1.3.8",
+    "common": {
+      "polyfills": {
+        "asyncFunctions": true
+      },
+      "buildPath": "project://build",
+      "outputName": "web-mobile-tqz",
+      "mainBundleCompressionType": "merge_dep",
+      "platform": "web-mobile",
+      "scenes": [
+        {
+          "url": "db://assets/lanuch/Launch.scene",
+          "uuid": "586d6dbb-fa4d-4da5-91f7-9ab91777e191",
+          "inBundle": false
+        }
+      ],
+      "md5Cache": true,
+      "replaceSplashScreen": true,
+      "useBuiltinServer": false,
+      "name": "遊戲王",
+      "overwriteProjectSettings": {
+        "includeModules": {
+          "gfx-webgl2": "on"
+        }
+      }
+    },
+    "options": {
+      "web-mobile": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.0",
+        "useWebGPU": false
+      }
+    }
+  },
+  "__version__": "1.0.1"
+}
