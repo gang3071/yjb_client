@@ -70,13 +70,23 @@ export class RegistAcc extends BaseView {
 
 
     btnGetVerifyCall () {
-        if ("0" != this.labPhone[0]) {
-            AlterTipsWrap.show("手机号格式不正确")
-            return
-        }
         if ("" == this.labPhone) {
             AlterTipsWrap.show("请输入手机号")
             return
+        }
+        // 根据区号验证手机号格式
+        if (UserInfo.defaultAreaNum == "86") {
+            // 大陆手机号以1开头
+            if ("1" != this.labPhone[0]) {
+                AlterTipsWrap.show("手机号格式不正确")
+                return
+            }
+        } else if (UserInfo.defaultAreaNum == "886") {
+            // 台湾手机号以0开头
+            if ("0" != this.labPhone[0]) {
+                AlterTipsWrap.show("手机号格式不正确")
+                return
+            }
         }
         httpRequest.post("api/v1/send-code",{
             phone:this.labPhone,
