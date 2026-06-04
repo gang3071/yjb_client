@@ -23,6 +23,8 @@ export const enum SERVER_EREA {
     TW_MC_YXW = 11,
     // 台湾2
     TW_2 = 12,
+    // 直营测试
+    DIRECT_TEST = 13,
     AUTO_TEST_8 = 84,
     // 台湾_线下测试
     TW_MC_YXW_TEST = 85,
@@ -48,7 +50,7 @@ export const enum SERVER_EREA {
     TEST = 99
 }
 /** 当前服务区域配置(根据打包修改) */
-export const NOW_SERVER_EREA : SERVER_EREA = SERVER_EREA.CN;
+export const NOW_SERVER_EREA : SERVER_EREA = SERVER_EREA.DIRECT_TEST;
 /** 通用版本 */
 const DEFAULT_VERSION = "1.1.0"
 /** 测试服版本号 */
@@ -72,6 +74,11 @@ export const enum LOGO_TYPE {
 
 const DEFAULT_WEB_URL = "https://api.1ting.cn/"
 const TEST_WEB_URL = "https://api-test.1ting.cn/"
+
+/** 默认 APP ID */
+const DEFAULT_APP_ID = "1661408635"
+/** 默认 APP SECRET */
+const DEFAULT_APP_SECRET = "D81668E7B3F24F4DAB32E5B88EAE27AC"
 
 /** 区域打包配置文件 */
 const SERVER_CONFIG = {
@@ -266,6 +273,23 @@ const SERVER_CONFIG = {
         "line_url" : "https://tw.greatboom.net",
         "ver" : DEFAULT_VERSION,
         "area" : "886",
+    },
+    // 直营测试
+    [13] : {
+        "server" : {
+            [0] : TEST_WEB_URL,
+            [1] : TEST_WEB_URL,
+        },
+        "site_id" : "2374d3d5-15da-41d7-9236-82d1a4411941",
+        "wss" : "wss://",
+        "Is-Ip" : "0",
+        "logo" : LOGO_TYPE.YJB,
+        "line_id" : "",
+        "line_url" : "",
+        "ver" : DEFAULT_TEST_VERSION,
+        "area" : "86",
+        "appid" : "8558444596",
+        "app_secret" : "ef963f71ede1de64d7a146ecbfadf38c",
     },
     // 测试自动登陆版本
     [84] : {
@@ -528,4 +552,8 @@ export const IS_CHECK_MODE = SERVER_CONFIG[NOW_SERVER_EREA]["is_check_mode"];
 /** 当前版本号 */
 export const GAME_VER = SERVER_CONFIG[NOW_SERVER_EREA]["ver"];
 /** 国家电话区号 */
-export const COUNTRY_CODE = SERVER_CONFIG[NOW_SERVER_EREA]["area"]; 
+export const COUNTRY_CODE = SERVER_CONFIG[NOW_SERVER_EREA]["area"];
+/** APP ID */
+export const APP_ID = SERVER_CONFIG[NOW_SERVER_EREA]["appid"] || DEFAULT_APP_ID;
+/** APP SECRET */
+export const APP_SECRET = SERVER_CONFIG[NOW_SERVER_EREA]["app_secret"] || DEFAULT_APP_SECRET; 

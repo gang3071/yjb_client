@@ -10,7 +10,7 @@ import { LoadingViewWrap } from "../base/utils/view/LoadingViewWrap";
 import { LoadingWrap } from "../base/utils/view/LoadingWrap";
 import { MsgBox } from "../base/utils/view/MsgBox";
 import { getCurEnv } from "../config/Env";
-import { GAME_VER, HTTP_SITE_ID, IP_DIRECT, SERVER_LIST } from "../config/ServerConfig";
+import { GAME_VER, HTTP_SITE_ID, IP_DIRECT, SERVER_LIST, APP_ID, APP_SECRET } from "../config/ServerConfig";
 import { UIConfig } from "../config/UIConfig";
 import { UserInfo } from "../modules/common/UserInfo";
 import { game } from "cc";
@@ -211,14 +211,14 @@ export class HttpRequest {
             params = {}
         }
         let _params = params
-        _params.appId = 1661408635
+        _params.appId = APP_ID
         _params.nonceStr = rand
         _params.timestamp = time
         let sortDDD = this.sortData(_params)
         // console.log("===sortDDD==",sortDDD)
         let buildDDD = this.http_build_query(sortDDD,null,null,null)
         // console.log("===buildDDD==",buildDDD)
-        let urlDDD = this.urldecode(buildDDD) + "D81668E7B3F24F4DAB32E5B88EAE27AC"
+        let urlDDD = this.urldecode(buildDDD) + APP_SECRET
         // console.log("===urlDDD==",urlDDD)
         let sha256DDD = utils.sha256(urlDDD)
         // console.log("===sha256DDD==",sha256DDD)
@@ -237,8 +237,8 @@ export class HttpRequest {
         let index = StoreMgr.getInstance().getIntValue("CURR_LANGUAGE",LANGUAGE_DEFAULT)
         xhr.setRequestHeader("Lang",languageParamsArr[index-1]);
 
-        xhr.setRequestHeader("appId", "1661408635");
-        //xhr.setRequestHeader("appKey", "D81668E7B3F24F4DAB32E5B88EAE27AC");
+        xhr.setRequestHeader("appId", APP_ID);
+        //xhr.setRequestHeader("appKey", APP_SECRET);
         xhr.setRequestHeader("timestamp", time.toString());
         xhr.setRequestHeader("signature", sha256DDD);
         xhr.setRequestHeader("nonceStr", rand);
