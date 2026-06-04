@@ -19,6 +19,12 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
+# 编辑器内部配置（自动生成，不需要提交）
+profiles/v2/packages/builder.json
+profiles/v2/packages/reference-image.json
+profiles/v2/packages/scene.json
+.creator/
+
 # 其他
 *.swp
 *.swo
