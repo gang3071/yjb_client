@@ -431,6 +431,11 @@ export class SLGame extends BaseView {
             this.m_uidata.machineInfo.win = args.machine_info.win
             this.m_uidata.machineInfo.bb = args.machine_info.bb
             this.m_uidata.machineInfo.rb = args.machine_info.rb
+
+            // 更新 enable_one_key_bet 字段
+            if (args.machine_info.enable_one_key_bet !== undefined) {
+                this.m_uidata.machineInfo.enable_one_key_bet = args.machine_info.enable_one_key_bet;
+            }
         }
     }
 
