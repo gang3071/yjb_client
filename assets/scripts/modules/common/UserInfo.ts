@@ -208,7 +208,7 @@ export class UserInfo {
                 Message.dispatchEvent("UpdateMachineData",msg)
                 UserInfo.wallet_list.money = utils.keepTwoDecimalStr(Number(msg.amount_after))
                 Message.dispatchEvent("UpdateMoney")
-                if (10 == msg.type) {
+                if (10 == msg.type && msg.amount != null) {
                     Message.dispatchEvent("GetActivityReward",msg.amount.toString())
                 }
             }

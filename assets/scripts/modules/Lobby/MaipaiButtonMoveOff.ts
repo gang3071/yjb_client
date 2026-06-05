@@ -53,13 +53,24 @@ export class MaipaiButtonMoveOff extends Component {
             machine_id: this.machineId,
             action: "move_point_off"
         }, (succ: any) => {
-            console.log("移分OFF成功", succ);
+            console.log("移分OFF API返回完整数据:", JSON.stringify(succ));
 
-            // 使用 LabelConfig 多语言配置
-            const lang = LocalizadManager.getInstance().getLanauge();
-            const message = LabelConfig["移分功能开发中..."][lang - 1];
+            // 处理服务端返回的消息
+            if (succ) {
+                const lang = LocalizadManager.getInstance().getLanauge();
+                let message: string;
 
-            AlterTipsWrap.show(message);
+                // 根据 code 判断是否成功
+                if (succ.code === 200) {
+                    message = LabelConfig["操作成功"][lang - 1];
+                } else {
+                    // 失败时显示服务端返回的错误信息，如果没有则显示"操作失败"
+                    message = succ.msg || LabelConfig["操作失败"][lang - 1];
+                }
+
+                AlterTipsWrap.show(message);
+            }
+
             this.closeDialog();
         }, (fail: any) => {
             console.error("移分OFF失败", fail);

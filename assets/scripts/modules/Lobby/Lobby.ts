@@ -494,11 +494,15 @@ export class Lobby extends BaseView {
             let node = this.machineListNode.getChildByName("ScrollView").getChildByName("view").getChildByName("content").getChildByName("Node")
             for (let i=0; i<succ.game_list.length; i++) {
                 if (1 == succ.game_list[i].type) {
-                    this.prizePoolCoinAnim(this.labSlotPrize,Number(succ.game_list[i].lottery_pool.amount))
+                    if (succ.game_list[i].lottery_pool && succ.game_list[i].lottery_pool.amount != null) {
+                        this.prizePoolCoinAnim(this.labSlotPrize,Number(succ.game_list[i].lottery_pool.amount))
+                    }
                     // this.imgSL.node.getComponent(UrlImageView).setUrl(succ.game_list[i].picture_url)
                     // node.getChildByName("item0").getChildByName("item").getChildByName("labPrize").getComponent(cc.Label).string = (Number(succ.game_list[i].lottery_pool.amount)).toString()
                 }else if (2 == succ.game_list[i].type) {
-                    this.prizePoolCoinAnim(this.labJackPrize,Number(succ.game_list[i].lottery_pool.amount))
+                    if (succ.game_list[i].lottery_pool && succ.game_list[i].lottery_pool.amount != null) {
+                        this.prizePoolCoinAnim(this.labJackPrize,Number(succ.game_list[i].lottery_pool.amount))
+                    }
                     // this.imgGZ.node.getComponent(UrlImageView).setUrl(succ.game_list[i].picture_url)
                     // node.getChildByName("item1").getChildByName("item").getChildByName("labPrize").getComponent(cc.Label).string = (Number(succ.game_list[i].lottery_pool.amount)).toString()
                 }
